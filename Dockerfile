@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     git curl zip unzip libpng-dev libonig-dev libxml2-dev \
     && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
-
+# ✅ Cài Composer thủ công
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
 
 # Copy mã nguồn Laravel vào container
 COPY . /var/www/html
